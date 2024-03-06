@@ -492,7 +492,7 @@ local char = player.Character
 
 if adv_mov and curr_enemy and 
 
-char and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0 then
+char and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0 and not char.Humanoid.Health > 100 then
 
 local mv = false
 
