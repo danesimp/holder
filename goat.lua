@@ -372,7 +372,7 @@ enemy:FindFirstChild("Head") then
 
 
 
-if enemy.Humanoid.Health > 0 and enemy.Torso.Transparency ~= 1 then
+if enemy.Humanoid.Health > 0 and not char.Humanoid.Health > 100  and enemy.Torso.Transparency ~= 1 then
 
 local distance = (enemy.Torso.Position - player.Character.Torso.Position).Magnitude
 
@@ -492,7 +492,7 @@ local char = player.Character
 
 if adv_mov and curr_enemy and 
 
-char and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0 and not char.Humanoid.Health > 100 then
+char and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0 then
 
 local mv = false
 
