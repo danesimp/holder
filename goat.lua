@@ -5,6 +5,16 @@ local uis = game:GetService("UserInputService")
 local players = game:GetService("Players")
 
 
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/batusz/uilibrarys/main/gud_notif_lib", true))()
+
+if Notifications == true then
+    wait(0.5)
+    Notification.new("normal", "Danebot (Aimbot but for goats)", "Sucessfully loaded.", "true", "1")
+    wait(1)
+    Notification.new("warning", "Danebot (Aimbot but for goats)", "Movement cheats can be blatant when seen from your POV, be careful.", "true", "1")
+end
+
+
 
 local player = players.LocalPlayer
 
@@ -21,12 +31,6 @@ local a_hold = false
 local d_hold = false
 
 local adv_mov = false
-
-
-
-print("sdfsdfdsf")
-
-
 
 local detection =  {
 
@@ -414,16 +418,30 @@ end
 
 uis.InputBegan:Connect(function(i, gpe)
 
-if i.KeyCode == Enum.KeyCode.J and not gpe then
+if i.KeyCode == ToggleKey and not gpe then
 
 toggle = not toggle
 
+if Notifications == true then
+    if toggle == true then
+        Notification.new("success", "Danebot (Aimbot but for goats)", "Aimbot enabled successfully.", "true", "1")
+    else
+        Notification.new("error", "Danebot (Aimbot but for goats)", "Aimbot disabled successfully.", "true", "1")
+    end
+end
 end
 
-if i.KeyCode == Enum.KeyCode.K and not gpe then
+if i.KeyCode == MovementKey and not gpe then
 
 adv_mov = not adv_mov
 
+if Notifications == true then
+    if adv_mov == true then
+        Notification.new("success", "Danebot (Aimbot but for goats)", "Advanced Movement enabled successfully.", "true", "1")
+    else
+        Notification.new("error", "Danebot (Aimbot but for goats)", "Advanced Movement disabled successfully.", "true", "1")
+    end
+end
 end
 
 if i.KeyCode == Enum.KeyCode.W and not gpe then
@@ -625,4 +643,3 @@ end
 end
 
 end
-
